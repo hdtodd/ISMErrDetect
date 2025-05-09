@@ -18,20 +18,33 @@ The message itself is a string of 9 bytes of randomized bits, augmented by the C
 
 The program ran the test of inserting the error block into 100 different randomized messages so that the results converged to stable values.
 
-For each possible 'init' value from 0x00 to 0xFF, and for block sizes of 1 to 8, the results were reported as:
+For each possible 'init' value from 0x00 to 0xFF, and for block sizes of 1 to 8 for each of those 'init' values, the results were reported as:
 -  the count of messages in which the inserted block had "NoEffect" (did not change the message and so could not be detected),
 -  the count of those 0-block insertions that were detected and missed,
 -  the count of those 1-block insertions that were detected and missed,
 -  the percentage of *observably corrupted* 0-block insertion messages, and
 -  the percentage of *observably corrupted* 1-block insertion messages.
 
-
-
 To check the impact upon messages that might have more systematic (less randomized) bit patterns, the program was modified to create messages that began with 4 bytes of 0's and then with 4 bytes of 1'.  The modeling was repeated with those more structured messages.
 
 ### Results
 
-For completely randomized 72-bit payload data, the 
+For completely randomized 72-bit payload data, the CRC-8 algorithm consistently detected 88% to 91% of the corrupted messages, whether they were anything from 1-bit to 8-bit blocks, regardless of the value of 'init'.
+
+For 72-bit payload data with 4 bytes of 0's followed by 5 bytes of randomized data, the error detection rate *dropped by about 8%*. 
+
+And similarly, for 72-bit payload data with 4 bytes of 1's followed by 5 bytes of randomized data, the error detection rate *dropped by about 7%*.
+
+### Repository Contents
+
+The repository has the modeling codes and the gziped output from the simulation models for the fully-randomized 72-bit message (ISMErrDetect.c) and the messages with initial blocks of 4 bytes of 0's (MsgBlock0.c) and 1's (MsgBlock1.c).
+
+Enabling DEBUG in the `C` programs generates a *great deal of output*: if you enable DEBUG, you might want to reduce the REPEATS from 100 to 1.
+
+### Author
+
+David Todd, hdtodd@gmail.com, 2025.05.09.
+
 
 
 
