@@ -37,7 +37,7 @@ And similarly, for 72-bit payload data with 4 bytes of 1's followed by 5 bytes o
 
 ### Repository Contents
 
-The repository has the modeling codes and the gziped output from the simulation models for the fully-randomized 72-bit message (ISMErrDetect.c) and the messages with initial blocks of 4 bytes of 0's (MsgBlock0.c) and 1's (MsgBlock1.c).
+The repository has the modeling codes and the gziped output from the simulation models for the fully-randomized 72-bit message (ISMErrDetect.c) and for the simulations with messages with initial blocks of 4 bytes of 0's (MsgBlock0.c) and 1's (MsgBlock1.c).
 
 Enabling DEBUG in the `C` programs generates a *great deal of output*: if you enable DEBUG, you might want to reduce the REPEATS from 100 to 1.
 
