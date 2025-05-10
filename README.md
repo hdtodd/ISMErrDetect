@@ -14,7 +14,7 @@ This model explores the impact of the insertion of a block of 0's or 1's into an
 
 The program inserts blocks of 1 to 8 bits of first 0's and then 1's into the 80-bit message and recomputes the CRC to determine if the error would be detected.  For each block size, the program tests the effect of inserting the block aligned at bit 1 (the left-most bit) of the message, then moves the block to start at bit 2, etc., until just the left-most bit of the block is corrupting just the right-most bit of the message.
 
-The message itself is a string of 9 bytes of randomized bits, augmented by the CRC byte to make a 10-byte, 80-bit message.  The polynomial used is Williams' "best" for this size message: 0x97.
+The message itself is a string of 9 bytes of randomized bits, augmented by the CRC byte to make a 10-byte, 80-bit message.  The polynomial used is Koopman and Chakravarty's "best" for this size message: 0x97.
 
 The program ran the test of inserting the error block into 100 different randomized messages so that the results converged to stable values.
 
