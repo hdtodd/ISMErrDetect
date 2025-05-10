@@ -45,7 +45,7 @@ gcc ISMErrDetect.c libcrc8.c
 ./a.out  (or ./a.out > mytest.txt)
 ```
 
-Enabling DEBUG in the `C` programs generates a *great deal of output*: if you enable DEBUG, you might want to reduce the REPEATS from 100 to 1.
+Enabling DEBUG in the `C` programs generates a *great deal of output*: if you enable DEBUG, you might want to reduce the REPEATS from 100 to 1 and perhaps limit the range of 'init' values rather than use the full 0x00 ... 0xff range.
 
 ### Author
 
